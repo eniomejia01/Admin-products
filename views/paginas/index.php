@@ -9,7 +9,6 @@ $auth = $_SESSION['login_copy'] ?? null;
 ?>
 
 
-
 <header class="header <?php echo $inicio  ? 'inicio' : ''; ?>">
 
 

@@ -1,0 +1,102 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.alerta {
+
+    padding: .5rem;
+    text-align: center;
+    font-weight: $bold;
+    text-transform: uppercase;
+
+    &.error{
+        color: $rojo;
+
+    }
+
+    &.exito{
+        background-color: $verde;
+        animation: ocultar 3s ease 1s 1 normal forwards;
+    }
+
+    @keyframes ocultar {
+        to {
+            opacity: 0;
+        }
+        }
+}
+
+table.propiedades {
+    margin-top: 4rem;
+    width: 100%;
+    border-spacing: 0;
+    margin-bottom: 2rem;
+
+    thead{
+        background-color: $verde;
+        text-align: center;
+
+    }
+
+    th{
+        color: $blanco;
+        padding: .5rem;
+        text-align: center;
+    }
+
+    th:nth-child(1){
+        width: 1rem;
+    }
+    th:nth-child(2){
+        width: 30rem;
+    }
+    th:nth-child(3){
+        width: 35rem;
+    }
+    th:nth-child(4){
+        width: 1rem;
+    }
+
+    th:nth-child(5){
+        width: 1rem;
+
+    }
+
+    th:nth-child(6){
+        width: 3rem;
+    }
+
+    td:nth-child(4){
+        text-align: center;
+    }
+
+    td:nth-child(5){
+        text-align: center;
+    }
+
+
+    td{   
+        text-align: left;
+
+    }
+
+
+
+    /* Estilo para filas pares a partir de la segunda fila */
+    tr:nth-child(even):not(:first-child) {
+        background-color: #959290; /* Color para filas pares */
+    }
+    
+    /* Estilo para filas impares a partir de la segunda fila */
+    tr:nth-child(odd):not(:first-child) {
+        background-color: #ffffff; /* Color para filas impares */
+    }
+
+}
+
+tr.revisada td {
+    background-color: red; /* Color amarillo claro */
+}
+
+tr.revisada {
+    background-color: red; /* Color gris claro */
+}

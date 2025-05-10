@@ -1,0 +1,168 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.barra {
+    background-color: #0809088c;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-right: 0rem;
+    border-radius: 15px;
+    gap: 1rem;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        // padding: 2rem;
+
+    }
+
+
+}
+
+.navegacion {
+    visibility: visible;
+    opacity: 1;
+
+    margin-right: 1rem;
+
+    @include tablet {
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @include desktop {
+        margin-right: 1rem;
+    }
+
+    a {
+
+        color: $negro;
+        text-decoration: none;
+        font-size: 1.5rem;
+        display: block;
+        text-align: center;
+
+        @include tablet {
+            margin-right: 0rem;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+
+
+
+        &:hover {
+            color: $verde;
+        }
+
+    }
+}
+
+.buscadorProductos {
+    color: v.$blanco;
+    padding: 1rem;
+}
+
+.buscadorProductos a {
+    color: v.$blanco;
+}
+
+.buscadorProductos:hover {
+    a {
+        color: v.$negro;
+    }
+
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+
+.boton-cerrar-sesion a {
+    @include m.boton(#545753, v.$width2);
+    border-radius: 10px;
+    padding: .5rem 1rem .5rem 1rem;
+    align-items: center;
+    margin-top: 0;
+
+}
+
+.nombre-usuario p {
+    color: v.$blanco;
+    padding-left: 1rem;
+}
+
+/* Styles page Buscador */
+
+.navBuscador {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+
+
+.titleBuscador {
+    text-align: center;
+    flex: 1;
+    margin-bottom: 0;
+}
+
+
+
+.verProductos {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.verProductos a {
+    color: v.$negro;
+    text-decoration: none;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.verProductos a:hover {
+
+    color: v.$azul;
+}
+
+.bi-i{
+    margin-right: 1rem;
+}
+
+@media (min-width: 768px) {
+
+
+    .verProductos {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+}
+
+.navegation-n{
+    background-color: #545753;
+    width: 95%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+}

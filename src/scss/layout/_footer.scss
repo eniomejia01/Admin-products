@@ -1,0 +1,20 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footer {
+    
+    padding: calc($separacion / 25) ;
+    background-color: $grisOscuro;
+    margin-top: 15rem;
+    margin-bottom: 0;
+
+    
+    @include m.tablet{
+        
+    }
+
+    .copyright {
+        color: $blanco;
+        text-align: center;
+    }
+}

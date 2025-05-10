@@ -1,0 +1,100 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+
+.transparente{
+    
+    background: rgb(89,92,111);
+    border-radius: 12px;
+    height: 48rem;
+    margin: 4rem auto;
+    max-width: 35rem;
+}
+
+@include desktop{
+    .transparente{
+
+        border-radius: 12px;
+        
+        height: 47rem;
+        margin: 7rem auto;
+        width: 40rem;
+
+        .descripcion-pagina{
+            margin: 0;
+            padding: 0;
+        }
+
+        .nombre-pagina {
+            margin: 2rem 0 2rem 0;
+        }
+    }
+
+}
+
+.formulario-cuenta {
+    width: 80%;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.campo {
+    // display: flex;
+    margin-bottom: 2rem;
+    align-items: center;
+
+    p{
+        font-size: 5.4rem;
+        // color: $grisOscuro;
+        margin: 2rem 0 0 0;
+
+    }
+
+    label {
+        flex: 0 0 10rem;
+        color: white;
+    }
+
+    input {
+        flex: 1;
+        border: 1px solid v.$grisOscuro;
+        padding: calc(v.$separacion / 5);
+        border-radius: 1rem;
+        width: 100%;
+
+        &:disabled {
+            background-color: lighten(v.$negro, 50%);
+            color: v.$negro;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.color-b{
+    @include m.boton(rgb(95,213,116), v.$width);
+    border-radius: 10px;
+}
+
+.color-b:hover{
+    background-color: #37bc0a;
+}
+
+
+.password-container {
+    position: relative;
+}
+
+#password {
+    padding-right: 30px; /* Espacio para el icono */
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

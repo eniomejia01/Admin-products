@@ -15,14 +15,33 @@
 
     &.exito{
         background-color: $verde;
-        animation: ocultar 3s ease 1s 1 normal forwards;
+        color: rgb(8, 8, 8); // Añadir color de texto para contraste
+        animation: mostrar-ocultar 5s ease-in-out forwards;
     }
 
-    @keyframes ocultar {
-        to {
+    // @keyframes ocultar {
+    //     to {
+    //         opacity: 5;
+    //     }
+    // }
+
+    @keyframes mostrar-ocultar {
+        0% {
             opacity: 0;
         }
+
+        10% {
+            opacity: 1;
         }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }       
+    }
 }
 
 table.propiedades {

@@ -2,11 +2,17 @@
 
     <h1>Crear producto | Cámaras</h1>
 
-    <?php foreach($errores  as $error): ?>
-        <div class="alerta  error">
-            <?php echo $error; ?>
-        </div>
-    <?php endforeach; ?>
+    <?php
+    if (isset($_GET['resultado']) && empty($alertas)) {
+        $mensaje = mostrarNotificacion(intval($_GET['resultado']));
+        if ($mensaje) {
+            echo "<div class='alerta exito'>{$mensaje}</div>";
+        }
+    }
+    ?>
+
+    <?php include_once __DIR__ . '/../templates/alertas.php' ?>
+
 
     <div class="product">
         <a href="/admin" class="boton boton-verde">Volver</a>

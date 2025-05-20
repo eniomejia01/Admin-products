@@ -23,22 +23,28 @@ class ActiveRecord {
         self::$db = $databse;
     }
 
+    public static function setAlerta($tipo, $mensaje) {
+        static::$alertas[$tipo][] = $mensaje;
+    }
+
     // Validación
     public static function getAlertas() {
         return static::$alertas;
     }
 
+    
     public function guardar() {
-        
+        $resultado = '';
         if(!is_null($this->id)){
 
             // actualizar
-            $this->actualizar();
+            $resultado = $this->actualizar();
 
         } else{
             // creando un nuevo registro
-            $this->crear();
+            $resultado = $this->crear();
         }
+        return $resultado;
     }
 
     // Busca un registro por su token
@@ -46,10 +52,6 @@ class ActiveRecord {
         $query = "SELECT * FROM " . static::$tabla ." WHERE ${columna} = '${valor}'";
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
-    }
-
-    public static function setAlerta($tipo, $mensaje) {
-        static::$alertas[$tipo][] = $mensaje;
     }
 
 
@@ -67,19 +69,13 @@ class ActiveRecord {
 
         $resultado = self::$db->query($query);
 
-        // // Mensaje de exito o error
-        // if($resultado) {
-        //         // Redireccionar al usuario
-        //         header('Location: /admin?resultado=1');
-        // }
-
         if ($resultado) {
             // Obtener la URL actual sin el /index.php
             $currentUrl = $_SERVER['PHP_SELF'];
             $currentUrl = str_replace('/index.php', '', $currentUrl);
         
             // Recargar la página actual
-            header('Location: ' . $currentUrl);
+            header('Location: ' . $currentUrl . '?resultado=1');
             exit();
         }
 

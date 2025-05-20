@@ -1,15 +1,13 @@
-<?php 
-    foreach ($alertas as $key => $mensajes):
-        foreach($mensajes as $mensaje):
+<?php
+
+    foreach ($alertas as $key => $alerta):
+        foreach ($alerta as $mensaje):
 ?>
-
     <div class="alerta <?php echo $key; ?>">
-            <?php echo $mensaje; ?>
-
-    </div> <!-- Lo que php genera no es necesario sanitizarlo -->
+        <?php echo $mensaje; ?>
+    </div>
 
 <?php
         endforeach;
     endforeach;
-
 ?>

@@ -9,8 +9,8 @@ class VariedadesController{
 
     public static function crear( Router $router){
 
-        $errores = Variedades::getErrores();
-        
+
+        $alertas = [];
         $variedades_productos = new Variedades();
         
 
@@ -23,19 +23,21 @@ class VariedadesController{
 
 
             // validadr que no haya campos vacíos
-            $errores = $variedades_productos -> validar();
+            $alertas = $variedades_productos -> validar();
 
-            // No hay errores
-            if(empty($errores)) {
+            // No hay alertas
+            if(empty($alertas)) {
                 $variedades_productos-> guardar();
+                header('Location: /crear');
+                exit;
             }
 
         }
 
         $router -> render('variedades/crear', [
 
-            'errores' => $errores,
-            'variedades_p' => $variedades_productos
+            'variedades_p' => $variedades_productos,
+            'alertas' => $alertas
 
 
         ]);

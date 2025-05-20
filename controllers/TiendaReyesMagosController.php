@@ -22,40 +22,35 @@ class TiendaReyesMagosController{
         ]);
     }
 
-    public static function crear( Router $router){
-
-        $errores = TiendaReyes::getErrores();
-
+    public static function crear(Router $router) {
+        $alertas = [];
         $reyes_productos = new TiendaReyes();
-        
 
-        // Ejecutar el codigo, despues de que el usuario envia el formulario
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+        // Ejecutar el código después de que el usuario envía el formulario
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Crear una nueva instancia
-            $reyes_productos  = new TiendaReyes($_POST['tienda_r']);
+            $reyes_productos = new TiendaReyes($_POST['tienda_r']);
 
-
-            // validadr que no haya campos vacíos
-            $errores = $reyes_productos-> validar();
+            // Validar que no haya campos vacíos
+            $alertas = $reyes_productos->validar();
 
             // No hay errores
-            if(empty($errores)) {
-                $reyes_productos-> guardar();
-            }
+            if (empty($alertas)) {
+                // Guardar el producto y capturar el resultado
+                $reyes_productos->guardar(); 
+                header('Location: /crear');
+                exit; // Asegurarse de que nada más se ejecute después de la redirección
 
+            } 
         }
 
-        $router -> render('tienda_reyes/crear', [
-
-            'errores' => $errores,
-            'tienda_r' => $reyes_productos
-
-
+        $router->render('tienda_reyes/crear', [
+            'tienda_r' => $reyes_productos,
+            'alertas' => $alertas
         ]);
-
     }
+
 
     public static function actualizar( Router $router){
 

@@ -9,8 +9,7 @@ class MostradoresController{
 
     public static function crear( Router $router){
 
-        $errores = Mostradores::getErrores();
-        
+        $alertas = [];        
         $mostradores_productos = new Mostradores();
         
 
@@ -23,19 +22,21 @@ class MostradoresController{
 
 
             // validadr que no haya campos vacíos
-            $errores = $mostradores_productos -> validar();
+            $alertas = $mostradores_productos -> validar();
 
-            // No hay errores
-            if(empty($errores)) {
+            // No hay alertas
+            if(empty($alertas)) {
                 $mostradores_productos-> guardar();
+                header('Location: /crear');
+                exit;
             }
 
         }
 
         $router -> render('mostradores/crear', [
 
-            'errores' => $errores,
-            'mostradores' => $mostradores_productos
+            'mostradores' => $mostradores_productos,
+            'alertas' => $alertas
 
 
         ]);

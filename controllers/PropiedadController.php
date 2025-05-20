@@ -45,30 +45,23 @@ class PropiedadController {
 
     public static function crear(Router $router) {
 
+        $alertas = [];
         $propiedad = new Propiedad;
-        // Arreglo con mensajes de errores
-        $errores = Propiedad::getErrores();
-
-        
-
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-
             // Crea una nueva instancia
             $propiedad = new Propiedad($_POST['propiedad']);
-    
-    
+
             // Validar
-            $errores = $propiedad -> validar();
+            $alertas = $propiedad -> validar();
     
-            // Revisar que el arreglo de errores este vacio
-            if(empty($errores)){
-        
-            // Guardar en la BD
-            $propiedad -> guardar();
-
-
+            // Revisar que el arreglo de alertas este vacio
+            if(empty($alertas)){
+                // Guardar en la BD
+                $propiedad -> guardar();
+                header('Location: /crear');
+                exit;
             }
     
             
@@ -77,8 +70,7 @@ class PropiedadController {
 
         $router->render('propiedades/crear', [
             'propiedad' => $propiedad,
-            'errores' => $errores,
-            'resultado' => $_GET['resultado'] ?? null,
+            'alertas' => $alertas
         ]);
     }
 

@@ -9,8 +9,7 @@ class CamarasController{
 
     public static function crear( Router $router){
 
-        $errores = Camaras::getErrores();
-        
+        $alertas = [];        
         $camaras_productos = new Camaras();
         
 
@@ -23,19 +22,21 @@ class CamarasController{
 
 
             // validadr que no haya campos vacíos
-            $errores = $camaras_productos -> validar();
+            $alertas = $camaras_productos -> validar();
 
-            // No hay errores
-            if(empty($errores)) {
+            // No hay alertas
+            if(empty($alertas)) {
                 $camaras_productos-> guardar();
+                header('Location: /crear');
+                exit;
             }
 
         }
 
         $router -> render('camaras/crear', [
-
-            'errores' => $errores,
-            'camaras_p' => $camaras_productos
+            
+            'camaras_p' => $camaras_productos,
+            'alertas' => $alertas
 
 
         ]);

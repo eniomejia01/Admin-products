@@ -9,8 +9,7 @@ class Estanteria3Controller{
 
     public static function crear( Router $router){
 
-        $errores = Estanteria3::getErrores();
-        
+        $alertas = [];        
         $estanteria3_productos = new Estanteria3();
         
 
@@ -23,13 +22,12 @@ class Estanteria3Controller{
 
 
             // validadr que no haya campos vacíos
-            $errores = $estanteria3_productos -> validar();
+            $alertas = $estanteria3_productos -> validar();
 
-            // No hay errores
-            if(empty($errores)) {
+            // No hay alertas
+            if(empty($alertas)) {
                 $estanteria3_productos-> guardar();
-
-                header('Location: /admin?resultado=2');
+                header('Location: /crear');
                 exit; // Importante añadir exit después de redireccionar
             }
 
@@ -37,7 +35,7 @@ class Estanteria3Controller{
 
         $router -> render('estanteria_3/crear', [
 
-            'errores' => $errores,
+            'alertas' => $alertas,
             'estanteria_3' => $estanteria3_productos
 
 

@@ -8,9 +8,8 @@ use Model\Estanteria;
 class EstanteriaController{
 
     public static function crear( Router $router){
-
-        $errores = Estanteria::getErrores();
         
+        $alertas = [];
         $estanteria2_productos = new Estanteria();
         
 
@@ -23,19 +22,21 @@ class EstanteriaController{
 
 
             // validadr que no haya campos vacíos
-            $errores = $estanteria2_productos -> validar();
+            $alertas = $estanteria2_productos -> validar();
 
-            // No hay errores
-            if(empty($errores)) {
+            // No hay alertas
+            if(empty($alertas)) {
                 $estanteria2_productos-> guardar();
+                header('Location: /crear');
+                exit;
             }
 
         }
 
         $router -> render('estanteria_2/crear', [
 
-            'errores' => $errores,
-            'estanteria_2' => $estanteria2_productos
+            'estanteria_2' => $estanteria2_productos,
+            'alertas' => $alertas
 
 
         ]);

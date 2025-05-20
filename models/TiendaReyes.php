@@ -32,27 +32,27 @@ class TiendaReyes extends ActiveRecord {
     public function validar() {
         
         if(!$this -> nombre_producto){
-            self::$errores[] = "Debes añadir nombre del producto";
+            self::$alertas['error'][] = "Debes añadir nombre del producto";
         }
 
 
         if(!$this -> precio){
-            self::$errores[] = 'El precio es obligatorio';
+            self::$alertas['error'][] = 'El precio es obligatorio';
         }
 
         if(!$this -> precioCliente){
-            self::$errores[] = 'El precioCliente es obligatorio';
+            self::$alertas['error'][] = 'El precioCliente es obligatorio';
         }
 
         // if( strlen( !$this -> descripcion ) >= 20 ){
-        //     self::$errores[] = 'La descripción es obligatoria Y debe tener al menos 20 caracteres';
+        //     self::$alertas[] = 'La descripción es obligatoria Y debe tener al menos 20 caracteres';
         // }
 
         if( !$this -> descripcion ){
-            self::$errores[] = 'La descripción es obligatoria Y debe tener al menos 20 caracteres';
+            self::$alertas['error'][] = 'La descripción es obligatoria Y debe tener al menos 20 caracteres';
         }
 
-        return self::$errores;
+        return self::$alertas;
     }
 
     public function guardar()

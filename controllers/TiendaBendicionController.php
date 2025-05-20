@@ -24,33 +24,34 @@ class TiendaBendicionController{
 
     public static function crear( Router $router){
 
-        $errores = TiendaBendicion::getErrores();
-
+        $alertas= [];
         $bendicion_productos = new TiendaBendicion();
         
 
         // Ejecutar el codigo, despues de que el usuario envia el formulario
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-
+            
             // Crear una nueva instancia
             $bendicion_productos = new TiendaBendicion($_POST['tienda_p']);
-
-
+            
+            
             // validadr que no haya campos vacíos
-            $errores = $bendicion_productos -> validar();
-
-            // No hay errores
-            if(empty($errores)) {
+            $alertas = $bendicion_productos -> validar();
+            
+            // No hay alertas
+            if(empty($alertas)) {
                 $bendicion_productos-> guardar();
+                header('Location: /crear');
+                exit; 
             }
-
+            
         }
 
         $router -> render('tienda_bendicion/crear', [
 
-            'errores' => $errores,
-            'tienda_p' => $bendicion_productos
+            'tienda_p' => $bendicion_productos,
+            'alertas' => $alertas
 
 
         ]);

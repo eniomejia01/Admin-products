@@ -24,8 +24,8 @@ class ConcentradosNutriController{
 
     public static function crear( Router $router){
 
+        $alertas = [];
         $concentrados_productos = new ConcentradosNutri();
-        $errores = ConcentradosNutri::getErrores();
 
         
 
@@ -38,19 +38,21 @@ class ConcentradosNutriController{
 
 
             // validadr que no haya campos vacíos
-            $errores = $concentrados_productos-> validar();
+            $alertas = $concentrados_productos-> validar();
 
-            // No hay errores
-            if(empty($errores)) {
+            // No hay alertas$alertas
+            if(empty($alertas)) {
                 $concentrados_productos-> guardar();
+                header('Location: /crear');
+                exit;
             }
 
         }
 
         $router -> render('concentrados-nutri/crear', [
 
-            'errores' => $errores,
-            'nutri_c' => $concentrados_productos
+            'nutri_c' => $concentrados_productos,
+            'alertas' => $alertas
 
 
         ]);

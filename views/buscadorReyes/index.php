@@ -11,7 +11,7 @@
     </div>
 
     <form class="formulario" method="POST">
-        
+
         <div class="contenedorBuscador">
             <label for="busqueda">Buscar:</label>
             <input class="widthInput" type="text" name="busqueda" id="busqueda" placeholder="Buscar Producto">
@@ -39,7 +39,7 @@
                             <td>Q <?php echo $propiedad->precio; ?></td>
                             <td>Q <?php echo $propiedad->precioCliente; ?></td>
                             <td>
-                                <a href="/productos/actualizar?id=<?php echo $propiedad->id; ?>&tabla=<?php echo $propiedad->tabla_origen; ?>" class="boton-amarillo-actualizar">Actualizar</a>
+                                <a href="/tienda_reyes/actualizar?id=<?php echo $propiedad->id; ?>&tabla=<?php echo $propiedad->tabla_origen; ?>" class="boton-amarillo-actualizar">Actualizar</a>
                             </td>
 
                         </tr>

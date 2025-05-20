@@ -82,7 +82,7 @@ class AdminBuscadorReyes extends ActiveRecord
         $resultado = self::$db->query($query);
 
         if ($resultado) {
-            header('Location: /buscadorReyes');
+            header('Location: /manager-reyes');
             return true;
         }
         return false;

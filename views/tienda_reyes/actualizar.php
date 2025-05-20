@@ -1,6 +1,6 @@
 <main class="contenedor seccion">
 
-    <h1>Actualizar Producto</h1>
+    <h1>Actualizar Producto Tienda Reyes</h1>
 
     <?php foreach ($errores  as $error): ?>
         <div class="alerta  error">

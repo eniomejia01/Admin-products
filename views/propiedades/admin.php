@@ -37,36 +37,36 @@ $auth = $_SESSION['login_copy'] ?? null; //este codigo es para que no se caiga l
     <header class="header <?php echo $inicio  ? 'inicio' : ''; ?>">
 
         <div class="barra">
-    
+
             <div class="nombre-usuario">
                 <p><?php echo $nombre ?? ''; ?></p>
             </div>
-    
+
             <div class="buscadorProductos">
                 <a href="/buscadorAdmin">Buscar Productos</a>
             </div>
-    
+
             <nav class="navegacion boton-cerrar-sesion">
-    
+
                 <?php if ($auth): ?>
                     <a href="/">Cerrar Sesión</a>
                 <?php endif; ?>
-    
+
             </nav>
         </div>
 
     </header>
 
 
-    <!-- <?php
-            if ($resultado) {
-                $mensaje = mostrarNotificacion(intval($resultado));
+    <?php
+        if ($resultado) {
+            $mensaje = mostrarNotificacion(intval($resultado));
 
-                if ($mensaje) { ?>
-                        <p class="alerta exito"><?php echo s($mensaje) ?></p>
-                    <?php }
-            }
-                    ?> -->
+            if ($mensaje) { ?>
+                <p class="alerta exito"><?php echo s($mensaje) ?></p>
+            <?php }
+        }
+    ?>
 
     <a href="/propiedades/crear" class="boton boton-verde">Agregar Producto</a>
 

@@ -1,7 +1,7 @@
 <header class="navegation-n">
-        <div class="buscadorProductos">
-            <a href="/buscadorNutri">Buscar Productos Nutri Animal</a>
-        </div>
+    <div class="buscadorProductos">
+        <a href="/buscadorNutri">Buscar Productos Nutri Animal</a>
+    </div>
 </header>
 
 <main class="contenedor">
@@ -13,15 +13,15 @@
 
     <h1>Administrador de Concentrados Nutri-Animal</h1>
 
-    <!-- <?php
-            if ($resultado) {
-                $mensaje = mostrarNotificacion(intval($resultado));
+    <?php
+        if ($resultado) {
+            $mensaje = mostrarNotificacion(intval($resultado));
 
-                if ($mensaje) { ?>
-                        <p class="alerta exito"><?php echo s($mensaje) ?></p>
-                    <?php }
-            }
-                    ?> -->
+            if ($mensaje) { ?>
+                <p class="alerta exito"><?php echo s($mensaje) ?></p>
+            <?php }
+        }
+    ?>
 
     <a href="/concentrados-nutri/crear" class="boton boton-verde">Agregar Producto</a>
 

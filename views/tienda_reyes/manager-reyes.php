@@ -1,7 +1,7 @@
 <header class="navegation-n">
-        <div class="buscadorProductos">
-            <a href="/buscadorReyes">Buscar Productos Reyes</a>
-        </div>
+    <div class="buscadorProductos">
+        <a href="/buscadorReyes">Buscar Productos Reyes</a>
+    </div>
 </header>
 
 <main class="contenedor">
@@ -13,15 +13,16 @@
 
     <h1>Administrador de Tienda Reyes Magos</h1>
 
-    <!-- <?php
-            if ($resultado) {
-                $mensaje = mostrarNotificacion(intval($resultado));
+    <?php
+        if ($resultado) {
+            $mensaje = mostrarNotificacion(intval($resultado));
 
-                if ($mensaje) { ?>
-                        <p class="alerta exito"><?php echo s($mensaje) ?></p>
-                    <?php }
-            }
-                    ?> -->
+            if ($mensaje) { ?>
+                <p class="alerta exito"><?php echo s($mensaje) ?></p>
+        <?php }
+        }
+    ?>
+
 
     <a href="/tienda_reyes/crear" class="boton boton-verde">Agregar Producto</a>
 

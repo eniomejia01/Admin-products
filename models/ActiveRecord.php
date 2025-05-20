@@ -98,10 +98,10 @@ class ActiveRecord {
 
         $resultado = self::$db ->query($query);
 
-        // if($resultado) {
-        //     // Redireccionar al usuario
-        //     header('Location: /admin?resultado=2');
-        // }
+        if($resultado) {
+            // Redireccionar al usuario
+            header('Location: /admin?resultado=2');
+        }
 
 
     }

@@ -19,8 +19,15 @@ use Controllers\LoginControllers;
 use Controllers\ProductosController;
 use Controllers\MostradoresController;
 use Controllers\CamarasController;
+use Controllers\CohetesController;
 use Controllers\ConcentradosController;
 use Controllers\ConcentradosNutriController;
+
+use Controllers\DepositoController;
+use Controllers\DulceriaController;
+use Controllers\Pedidos;
+use Controllers\VariedadesPedidosController;
+
 use Controllers\TiendaBendicionController;
 use Controllers\TiendaReyesMagosController;
 use Controllers\VariedadesController;
@@ -144,5 +151,39 @@ $router->post('/crear-cuenta', [LoginControllers::class, 'crear']);
 // Confirma cuenta
 $router->get('/confirmar-cuenta', [LoginControllers::class, 'confirmar']);
 $router->get('/mensaje', [LoginControllers::class, 'mensaje']);
+
+
+// Página pedidos / pedidos Medicinas
+$router->get('/index-pedidos', [Pedidos::class, 'index']);
+$router->post('/index-pedidos', [Pedidos::class, 'index']);
+$router->get('/pedidos/crear', [Pedidos::class, 'crear']);
+$router->post('/pedidos/crear', [Pedidos::class, 'crear']);
+$router->get('/pedidos/actualizar', [Pedidos::class, 'actualizar']);
+$router->post('/pedidos/actualizar', [Pedidos::class, 'actualizar']);
+
+// Página pedidos / pedidos Dulcería
+$router->get('/pedidosDulceria/crear', [DulceriaController::class, 'crear']);
+$router->post('/pedidosDulceria/crear', [DulceriaController::class, 'crear']);
+$router->get('/pedidosDulceria/actualizar', [DulceriaController::class, 'actualizar']);
+$router->post('/pedidosDulceria/actualizar', [DulceriaController::class, 'actualizar']);
+
+// Página pedidos / pedidos Deposito
+$router->get('/pedidosDeposito/crear', [DepositoController::class, 'crear']);
+$router->post('/pedidosDeposito/crear', [DepositoController::class, 'crear']);
+$router->get('/pedidosDeposito/actualizar', [DepositoController::class, 'actualizar']);
+$router->post('/pedidosDeposito/actualizar', [DepositoController::class, 'actualizar']);
+
+
+// Página pedidos / pedidos Cohetes
+$router->get('/pedidosCohetes/crear', [CohetesController::class, 'crear']);
+$router->post('/pedidosCohetes/crear', [CohetesController::class, 'crear']);
+$router->get('/pedidosCohetes/actualizar', [CohetesController::class, 'actualizar']);
+$router->post('/pedidosCohetes/actualizar', [CohetesController::class, 'actualizar']);
+
+// Página pedidos / pedidos Variedades
+$router->get('/pedidosVariedades/crear', [VariedadesPedidosController::class, 'crear']);
+$router->post('/pedidosVariedades/crear', [VariedadesPedidosController::class, 'crear']);
+$router->get('/pedidosVariedades/actualizar', [VariedadesPedidosController::class, 'actualizar']);
+$router->post('/pedidosVariedades/actualizar', [VariedadesPedidosController::class, 'actualizar']);
 
 $router->comprobarRutas();

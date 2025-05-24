@@ -30,6 +30,9 @@ $auth = $_SESSION['login_copy'] ?? null; //este codigo es para que no se caiga l
     <div class="acciones">
         <a href="/crear-cuenta">Crear una nueva cuenta de vendedor</a>
     </div>
+    <div class="acciones">
+        <a href="/index-pedidos">Página de Pedidos</a>
+    </div>
 
 
     <h1>Administrador de Tienda Primavera</h1>
@@ -96,14 +99,14 @@ $auth = $_SESSION['login_copy'] ?? null; //este codigo es para que no se caiga l
                     <td>Q <?php echo $propiedad->precioCliente ?></td>
                     <td>
 
-                        <form method="POST" class="w-100" action="/propiedades/eliminar">
+                        <!-- <form method="POST" class="w-100" action="/propiedades/eliminar">
 
 
                             <input type="hidden" name="id" value="<?php echo $propiedad->id; ?>">
                             <input type="hidden" name="tipo" value="propiedad">
                             <input type="submit" class="boton-rojo-eliminar" value="Eliminar">
 
-                        </form>
+                        </form> -->
                         <a href="/propiedades/actualizar?id=<?php echo $propiedad->id; ?>" class="boton-amarillo-actualizar">Actualizar</a>
                     </td>
                 </tr>
@@ -140,15 +143,13 @@ $auth = $_SESSION['login_copy'] ?? null; //este codigo es para que no se caiga l
                     <td>Q <?php echo $estanteria_2->precio ?></td>
                     <td>Q <?php echo $estanteria_2->precioCliente ?></td>
                     <td>
-
+<!-- 
                         <form method="POST" class="w-100" action="/estanteria_2/eliminar">
-
-
                             <input type="hidden" name="id" value="<?php echo $estanteria_2->id; ?>">
                             <input type="hidden" name="tipo" value="estanteria_2">
                             <input type="submit" class="boton-rojo-eliminar" value="Eliminar">
+                        </form> -->
 
-                        </form>
                         <a href="/estanteria_2/actualizar?id=<?php echo $estanteria_2->id; ?>" class="boton-amarillo-actualizar">Actualizar</a>
                     </td>
                 </tr>
@@ -185,14 +186,12 @@ $auth = $_SESSION['login_copy'] ?? null; //este codigo es para que no se caiga l
                     <td>Q <?php echo $estanteria_3->precioCliente ?></td>
                     <td>
 
-                        <form method="POST" class="w-100" action="/estanteria_3/eliminar">
-
-
+<!--                         <form method="POST" class="w-100" action="/estanteria_3/eliminar">
                             <input type="hidden" name="id" value="<?php echo $estanteria_3->id; ?>">
                             <input type="hidden" name="tipo" value="estanteria_3">
                             <input type="submit" class="boton-rojo-eliminar" value="Eliminar">
+                        </form> -->
 
-                        </form>
                         <a href="/estanteria_3/actualizar?id=<?php echo $estanteria_3->id; ?>" class="boton-amarillo-actualizar">Actualizar</a>
                     </td>
                 </tr>
@@ -230,14 +229,12 @@ $auth = $_SESSION['login_copy'] ?? null; //este codigo es para que no se caiga l
                     <td>Q <?php echo $mostradores->precioCliente ?></td>
                     <td>
 
-                        <form method="POST" class="w-100" action="/mostradores/eliminar">
-
-
+<!--                         <form method="POST" class="w-100" action="/mostradores/eliminar">
                             <input type="hidden" name="id" value="<?php echo $mostradores->id; ?>">
                             <input type="hidden" name="tipo" value="mostradores">
                             <input type="submit" class="boton-rojo-eliminar" value="Eliminar">
+                        </form> -->
 
-                        </form>
                         <a href="/mostradores/actualizar?id=<?php echo $mostradores->id; ?>" class="boton-amarillo-actualizar">Actualizar</a>
                     </td>
                 </tr>
@@ -275,14 +272,12 @@ $auth = $_SESSION['login_copy'] ?? null; //este codigo es para que no se caiga l
                     <td>Q <?php echo $camaras_p->precioCliente ?></td>
                     <td>
 
-                        <form method="POST" class="w-100" action="/camaras/eliminar">
-
-
+<!--                        <form method="POST" class="w-100" action="/camaras/eliminar">
                             <input type="hidden" name="id" value="<?php echo $camaras_p->id; ?>">
                             <input type="hidden" name="tipo" value="camaras">
                             <input type="submit" class="boton-rojo-eliminar" value="Eliminar">
+                        </form> -->
 
-                        </form>
                         <a href="/camaras/actualizar?id=<?php echo $camaras_p->id; ?>" class="boton-amarillo-actualizar">Actualizar</a>
                     </td>
                 </tr>
@@ -320,14 +315,12 @@ $auth = $_SESSION['login_copy'] ?? null; //este codigo es para que no se caiga l
                     <td>Q <?php echo $concentrado_p->precioCliente ?></td>
                     <td>
 
-                        <form method="POST" class="w-100" action="/concentrados/eliminar">
-
-
+<!--                         <form method="POST" class="w-100" action="/concentrados/eliminar">
                             <input type="hidden" name="id" value="<?php echo $concentrado_p->id; ?>">
                             <input type="hidden" name="tipo" value="concentrados">
                             <input type="submit" class="boton-rojo-eliminar" value="Eliminar">
+                        </form> -->
 
-                        </form>
                         <a href="/concentrados/actualizar?id=<?php echo $concentrado_p->id; ?>" class="boton-amarillo-actualizar">Actualizar</a>
                     </td>
                 </tr>
@@ -365,14 +358,12 @@ $auth = $_SESSION['login_copy'] ?? null; //este codigo es para que no se caiga l
                     <td>Q <?php echo $variedades_p->precioCliente ?></td>
                     <td>
 
-                        <form method="POST" class="w-100" action="/variedades/eliminar">
-
-
+<!--                         <form method="POST" class="w-100" action="/variedades/eliminar">
                             <input type="hidden" name="id" value="<?php echo $variedades_p->id; ?>">
                             <input type="hidden" name="tipo" value="variedades">
                             <input type="submit" class="boton-rojo-eliminar" value="Eliminar">
+                        </form> -->
 
-                        </form>
                         <a href="/variedades/actualizar?id=<?php echo $variedades_p->id; ?>" class="boton-amarillo-actualizar">Actualizar</a>
                     </td>
                 </tr>

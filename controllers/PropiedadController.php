@@ -90,7 +90,6 @@ class PropiedadController {
     
             $errores = $propiedad->validar();
 
-            $propiedad -> guardar();
             if (empty($errores)) {
                 $propiedad->guardar();
                 // Redireccionar a manager con código de resultado 2 (actualizado correctamente)
